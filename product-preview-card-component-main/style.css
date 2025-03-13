@@ -1,0 +1,164 @@
+/* Reset de stilos básicos para todos los componentes html '*'==selector universal  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(30, 38%, 92%);
+}
+main {
+    width: 100%;
+}
+.card {
+    min-width: 700px;
+    width: 10%;
+    margin: 0 auto;
+    display: flex;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;/*Aumenta el tamaño del card cuando paso el puntero por encima SUAVEMENTE */
+}
+
+.card:hover {
+    transform: scale(1.1); /* Aumenta el tamaño en un 10% */
+}
+.left {
+    width: 50%;
+    background-image: url(images/image-product-desktop.jpg);
+    background-position: center;
+    background-size: cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    padding: 35px 40px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.head01 {
+    font-size: 16px;
+    color: hsl(228, 12%, 48%);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: Montserrat;
+}
+h1 {
+    font-size: 38px;
+    color: hsl(212, 21%, 14%);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.des {
+    font-size: 14px;
+    width: 85%;
+    line-height: 1.5;
+    color: hsl(228, 12%, 48%);
+}
+
+.price {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.price_up {
+    font-size: 36px;
+    color: hsl(158, 36%, 37%);
+}
+
+.price_down {
+    font-size: 14px;
+    text-decoration: line-through;
+    color: hsl(228, 12%, 48%);
+    ;
+}
+
+button {
+    width: 100%;
+    padding: 17px 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: hsl(30, 38%, 92%);
+    font-weight: 700;
+    border-radius: 7px;
+    background-color: hsl(158, 36%, 37%);
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: hsl(158, 42%, 18%);
+}
+
+button img {
+    margin-right: 7px;
+}
+
+
+/*Media Query para conservar tamaño default para pantallas entre  641 y 768px y dejar dos columnas x 1 fila*/
+@media only screen and (min-width: 641px) and (max-width:768px) {
+    .card {
+        max-width: 600px;
+    }
+}
+/*Media Query para transformar tamaño a versión mobile y dejar 2 filas en una columna*/
+@media only screen and (max-width:640px){
+    .card{
+        min-width: auto;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+    }
+
+    .card:active {/*en mobile no hay hover, entonces se debe usar active*/
+        transform: scale(1.1); /* Aumenta el tamaño al tocar */
+        transition: transform 0.3s ease-in-out;
+    }
+    .left{
+        width: 100%;
+        height: 350px;
+        background-image: url(images/image-product-mobile.jpg);
+        border-radius: 10px 10px 0 0;
+        background-size: cover;
+        background-position: center;
+        
+    }
+    .right{
+        width: 100%;
+        row-gap: 12px;
+        padding: 25px;
+        border-radius: 0 0 10px 10px;
+    }
+    .head01{
+        font-size: 14px;
+    }
+    h1{
+        font-size: 32px;
+        line-height: 1;
+    }
+    .des{
+        width: 95%;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        line-height: 1.7;
+        font-size: 12px;
+    }
+    button{
+        margin: 10px;
+    }
+}
